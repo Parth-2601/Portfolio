@@ -28,7 +28,7 @@ export const Contact = () => {
 
         const result = await response.json();
 
-        if (response.ok) {
+        if (response.success) {
             setStatus("Message sent to Slack!");
             setFormData({ name: "", email: "", message: "" });
         } else {
@@ -38,6 +38,7 @@ export const Contact = () => {
         setStatus("Error: " + error.message);
     }
 };
+
 
 
   return (
