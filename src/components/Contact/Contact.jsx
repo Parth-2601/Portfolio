@@ -6,7 +6,7 @@ export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const [status, setStatus] = useState("");
@@ -20,26 +20,24 @@ export const Contact = () => {
     setStatus("Sending...");
 
     try {
-        const response = await fetch("/api/sendToSlack", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-        });
+      const response = await fetch("/api/sendToSlack", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-        const result = await response.json();
+      const result = await response.json();
 
-        if (response.success) {
-            setStatus("Message sent to Slack!");
-            setFormData({ name: "", email: "", message: "" });
-        } else {
-            setStatus("Failed to send message.");
-        }
+      if (result.success) {
+        setStatus("Message sent to Slack!");
+        setFormData({ name: "", email: "", message: "" }); // Clear the form
+      } else {
+        setStatus("Failed to send message: " + (result.error || "Unknown error"));
+      }
     } catch (error) {
-        setStatus("Error: " + error.message);
+      setStatus("Error: " + error.message);
     }
-};
-
-
+  };
 
   return (
     <section id="contact" className={styles.container}>

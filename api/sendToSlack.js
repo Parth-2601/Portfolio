@@ -4,25 +4,24 @@ export default async function handler(req, res) {
     }
 
     try {
-        // ✅ Use req.body directly (Vercel API routes automatically parse JSON)
         const { name, email, message } = req.body;
 
-        // ✅ Correct environment variable name
+        console.log("Received Data:", { name, email, message });
+
         const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
         if (!slackWebhookUrl) {
             console.error("Slack Webhook URL is missing");
             return res.status(500).json({ success: false, error: "Slack webhook URL is missing" });
         }
 
-        // ✅ Debugging log
-        console.log("Received Data:", { name, email, message });
+        console.log("Slack Webhook URL:", slackWebhookUrl); // Debugging
 
-        // ✅ Construct Slack message
         const slackMessage = {
             text: `📩 *New Contact Form Submission*\n\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n💬 *Message:* ${message}`
         };
 
-        // ✅ Send request to Slack webhook
+        console.log("Sending to Slack:", slackMessage); // Debugging
+
         const response = await fetch(slackWebhookUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -34,7 +33,8 @@ export default async function handler(req, res) {
         if (response.ok) {
             return res.status(200).json({ success: true });
         } else {
-            console.error("Slack API Error:", await response.text()); // Debugging
+            const errorText = await response.text();
+            console.error("Slack API Error:", errorText); // Debugging
             return res.status(500).json({ success: false, error: "Failed to send message to Slack" });
         }
     } catch (error) {
