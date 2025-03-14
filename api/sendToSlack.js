@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     }
 
     const { name, email, message } = await req.body;
-    const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
+    const slackWebhookUrl = process.env.VITE_SLACK_WEBHOOK_URL;
 
     if (!slackWebhookUrl) {
         return res.status(500).json({ success: false, error: "Slack webhook URL is missing" });
