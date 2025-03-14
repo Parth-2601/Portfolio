@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
 
 // Email sending route
 app.post("/send-email", async (req, res) => {
-  const { name: senderName, email, message } = req.body; // Rename `name` to `senderName`
+  const { name: senderName, email, message } = req.body;
 
   const mailOptions = {
     from: email,
@@ -42,12 +42,9 @@ app.post("/send-email", async (req, res) => {
 
 // Serve static files from Vite build (if applicable)
 if (process.env.NODE_ENV === "production") {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
-
   app.use(express.static("dist"));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+    res.sendFile(path.resolve(process.cwd(), "dist", "index.html")); // Use process.cwd() instead of __dirname
   });
 }
 
