@@ -20,24 +20,25 @@ export const Contact = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+        const response = await fetch("/api/sendToSlack", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        });
 
-      const result = await response.json();
-      
-      if (result.success) {
-        setStatus("Email sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus("Failed to send email: " + result.error);
-      }
+        const result = await response.json();
+
+        if (response.ok) {
+            setStatus("Message sent to Slack!");
+            setFormData({ name: "", email: "", message: "" });
+        } else {
+            setStatus("Failed to send message.");
+        }
     } catch (error) {
-      setStatus("Error sending email: " + error.message);
+        setStatus("Error: " + error.message);
     }
-  };
+};
+
 
   return (
     <section id="contact" className={styles.container}>
@@ -88,6 +89,7 @@ export const Contact = () => {
           required
         />
         <button type="submit">Send Message</button>
+        <p>{status}</p>
       </form>
     </section>
   );
