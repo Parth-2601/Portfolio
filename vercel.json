@@ -6,14 +6,19 @@
         "use": "@vercel/node"
       },
       {
-        "src": "dist/", 
+        "src": "src/App.jsx",
         "use": "@vercel/static"
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
+        "src": "/api/(.*)",
         "dest": "email-server/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/src/App.jsx"
       }
     ]
   }
+  
