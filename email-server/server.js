@@ -2,10 +2,12 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -21,12 +23,12 @@ const transporter = nodemailer.createTransport({
 
 // Email sending route
 app.post("/send-email", async (req, res) => {
-  const { name, email, message } = req.body;
+  const { name: senderName, email, message } = req.body; // Rename `name` to `senderName`
 
   const mailOptions = {
     from: email,
     to: process.env.RECEIVER_EMAIL,
-    subject: `Contact from ${name}`,
+    subject: `Contact from ${senderName}`,
     text: `${message}\n\nFrom: ${email}`,
   };
 
@@ -38,4 +40,16 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+// Serve static files from Vite build (if applicable)
+if (process.env.NODE_ENV === "production") {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  app.use(express.static("dist"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+  });
+}
+
+// Export the Express app
+export default app;

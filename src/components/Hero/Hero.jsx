@@ -9,7 +9,9 @@ export const Hero = () => {
         <h1 className={styles.title}>
          Hello, I'm <br />
           <TypeAnimation
-            sequence={["PARTHKUMAR", 1000, "A FULL-STACK DEVELOPER", 1000, "UI/UX DESIGNER", 1000]}
+            sequence={["PARTHKUMAR", 1000, 
+                        "A FULL-STACK DEVELOPER", 1000, 
+                        "UI/UX DESIGNER", 1000]}
             wrapper="span"
             speed={50}
             repeat={Infinity}
