@@ -4,18 +4,17 @@ export default async function handler(req, res) {
     }
 
     try {
-        // ✅ Correct way to parse request body
-        const body = await req.json();  
-        const { name, email, message } = body;
+        // ✅ Use req.body directly (Vercel API routes automatically parse JSON)
+        const { name, email, message } = req.body;
 
-        // ✅ Correct environment variable
+        // ✅ Correct environment variable name
         const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
         if (!slackWebhookUrl) {
             console.error("Slack Webhook URL is missing");
             return res.status(500).json({ success: false, error: "Slack webhook URL is missing" });
         }
 
-        // ✅ Log incoming request for debugging
+        // ✅ Debugging log
         console.log("Received Data:", { name, email, message });
 
         // ✅ Construct Slack message
