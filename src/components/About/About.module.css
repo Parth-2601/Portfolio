@@ -1,0 +1,144 @@
+/* Container styling */
+.container {
+  position: relative;
+  background-color: rgba(33, 19, 19, 0.346);
+  border-radius: 15px;
+  padding: 50px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  color: white;
+}
+
+/* Title styling */
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Content layout */
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+/* Left column for image */
+.leftColumn {
+  flex: 1;
+}
+
+/* Right column for text and tabs */
+.rightColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* About image styling */
+.aboutImage {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* About text styling */
+.aboutText {
+  font-size: 18px;
+  margin-bottom: 30px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Tab buttons container */
+.tabButtons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10; /* Ensures buttons are clickable */
+}
+
+/* Individual tab button styling */
+.tabButton {
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid white;
+  padding: 12px 22px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative; /* Ensures it's clickable */
+  z-index: 11;
+}
+
+.tabButton:hover {
+  cursor: pointer;
+}
+
+.activeTab {
+  background-color: white;
+  color: rgba(33, 19, 19, 0.6);
+}
+
+/* Tab content spacing and transition effect */
+.tabContent {
+  margin-top: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* List styling inside tab content */
+.list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Responsive Design - Media Query for smaller screens */
+@media screen and (max-width: 830px) {
+  .container {
+    width: auto; 
+    padding: 30px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    border-radius: 0; 
+    background-color: transparent;
+  }
+
+  .content {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    width: 100%;
+  }
+
+  .aboutImage {
+    width: 100%;
+    max-width: none;
+  }
+
+  .aboutText {
+    text-align: center;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .tabButtons {
+    justify-content: center;
+  }
+}

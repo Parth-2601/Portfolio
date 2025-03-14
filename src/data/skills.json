@@ -1,0 +1,38 @@
+[
+  {
+    "title": "HTML",
+    "imageSrc": "https://img.icons8.com/color/452/html-5.png"
+  },
+  {
+    "title": "CSS",
+    "imageSrc": "https://img.icons8.com/color/452/css3.png"
+  },
+  {
+    "title": "React",
+    "imageSrc": "https://img.icons8.com/officel/452/react.png"
+  },
+  {
+    "title": "Node",
+    "imageSrc": "https://img.icons8.com/color/452/nodejs.png"
+  },
+  {
+    "title": "GraphQL",
+    "imageSrc": "https://img.icons8.com/color/452/graphql.png"
+  },
+  {
+    "title": "MongoDB",
+    "imageSrc": "https://img.icons8.com/?size=100&id=74402&format=png&color=000000"
+  },
+  {
+    "title": "NextJS",
+    "imageSrc": "https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000"
+  },
+  {
+    "title": "AngularJS",
+    "imageSrc": "https://img.icons8.com/?size=100&id=j9DnICNnlhGk&format=png&color=000000"
+  },
+  {
+    "title": "Tailwind",
+    "imageSrc": "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000"
+  }
+]

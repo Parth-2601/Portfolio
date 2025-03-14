@@ -1,0 +1,79 @@
+@import "../../vars.css";
+
+.container {
+  color: var(--color-text);
+  margin: 79px auto;
+  max-width: 85%;
+  text-align: center;
+}
+
+.title {
+  color: var(--color-text);
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 1.75px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 800px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.skill:hover {
+  transform: scale(1.1);
+}
+
+.skillImageContainer {
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.skillImageContainer img {
+  width: 50px;
+}
+
+.skill:hover .skillImageContainer {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.skill p {
+  font-size: 22px;
+  font-family: var(--font-roboto);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .skills {
+    width: 100%;
+    gap: 30px;
+  }
+}

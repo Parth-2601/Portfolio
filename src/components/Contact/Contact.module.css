@@ -1,0 +1,141 @@
+@import "../../vars.css";
+
+/* Main container styling */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%; 
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), var(--color-primary));
+  color: var(--color-text);
+  width: 100%;
+  gap: 50px;
+  min-height: 15vh; 
+}
+
+/* Left section (Contact Information) */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h2 {
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.links li img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.links li img:hover {
+  transform: scale(1.1);
+}
+
+/* Right section (Contact Form) - Aligned to extreme right */
+.contactForm {
+  flex: 1;
+  max-width: 400px;
+  align-self: flex-start;
+  border-radius: 10px;
+}
+
+.contactForm h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Ensuring input fields and button are of equal size */
+.contactForm input,
+.contactForm textarea,
+.contactForm button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  background: white;
+  color: black;
+}
+
+.contactForm textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Enhanced Send Message Button Styling */
+.contactForm button {
+  background: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.contactForm button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 30px 5%; 
+    align-items: center;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 45px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  .links {
+    gap: 15px;
+  }
+
+  .links img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contactForm {
+    max-width: 100%;
+    align-self: center;
+  }
+}

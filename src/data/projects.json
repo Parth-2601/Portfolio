@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Chat Application",
+    "imageSrc": "projects/Project1/cover.png",
+    "description": "A modern, real-time chat web application built with Node.js, Socket.IO, and a clean, responsive UI. Users can join different topic-based rooms and communicate with others in real-time.",
+    "demoImages": ["projects/Project1/p1.png", "projects/Project1/p2.png","projects/Project1/p3.png"],
+    "source": "https://github.com/Parth-2601/101399114_lab_test1_chat_app.git"
+  }
+]

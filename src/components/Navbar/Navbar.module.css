@@ -1,0 +1,121 @@
+@import "../../vars.css";
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10%; /* Reduced padding */
+    height: 60px; /* Decreased height */
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+}
+
+.navbar img {
+    height: 50px; /* Adjusted logo size */
+    width: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar img:hover {
+    transform: scale(1.1);
+}
+
+.menu {
+    display: flex;
+}
+
+/* Hides the menu button by default */
+.menuBtn {
+    display: none;
+}
+
+/* Ensures menu items are visible in larger screens */
+.menuItems {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.menuItems a {
+    font-size: 20px; /* Adjusted font size */
+    color: var(--color-text);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Active and hover styles */
+.menuItems a.active,
+.menuItems a:hover {
+    color: var(--color-primary);
+}
+
+.menuItems a.active::after,
+.menuItems a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 830px) {
+    .navbar {
+        height: auto; /* Allow flexible height on small screens */
+        padding: 10px 8%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        position: absolute;
+        right: 0;
+        margin-right: 10%;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 11px;
+        z-index: 3;
+    }
+
+    /* Display menu button only on smaller screens */
+    .menuBtn {
+        display: block;
+        cursor: pointer;
+        height: 40px; /* Adjusted button size */
+    }
+
+    /* Hide menu items initially on small screens */
+    .menuItems {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        border-radius: 10px;
+        background: linear-gradient(0deg, 
+        rgba(25, 55, 109, 0.2) 0%, 
+        rgba(25, 55, 109, 1) 100%);
+        padding: 20px 30px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    /* Display the menu when open */
+    .menuOpen {
+        display: flex;
+        z-index: 1;
+    }
+
+    /* Adjust active and hover styles for mobile */
+    .menuItems a.active::after,
+    .menuItems a:hover::after {
+        width: 50%;
+        left: 25%;
+    }
+}
