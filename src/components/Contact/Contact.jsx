@@ -18,16 +18,16 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
-
+  
     try {
       const response = await fetch("/api/sendToSlack", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+  
       const result = await response.json();
-
+  
       if (result.success) {
         setStatus("Message sent to Slack!");
         setFormData({ name: "", email: "", message: "" }); // Clear the form
