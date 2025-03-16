@@ -9,12 +9,12 @@ export const ProjectCard = ({ project: { title, imageSrc, description, demoImage
 
   const openModal = () => {
     setIsModalOpen(true);
-    document.body.classList.add(styles.modalOpen); // Add class to body for blur effect
+    document.body.classList.add(styles.modalOpen);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    document.body.classList.remove(styles.modalOpen); // Remove class to body for blur effect
+    document.body.classList.remove(styles.modalOpen);
   };
 
   const nextSlide = () => {
@@ -25,20 +25,15 @@ export const ProjectCard = ({ project: { title, imageSrc, description, demoImage
     setCurrentIndex((prevIndex) => (prevIndex - 1 + demoImages.length) % demoImages.length);
   };
 
-  const truncateDescription = (text, maxLines = 4) => {
-    const words = text.split(" ");
-    return words.length > maxLines * 10 ? words.slice(0, maxLines * 10).join(" ") + "..." : text;
-  };
-
   return (
     <div className={styles.container}>
       <img src={getImageUrl(imageSrc)} alt={`Image of ${title}`} className={styles.image} />
       <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{truncateDescription(description)}</p>
+      <p className={styles.description}>{description}</p>
       <div className={styles.linksWrapper}>
         <div className={styles.links}>
           <button onClick={openModal} className={styles.link}>Preview</button>
-          <a href={source} className={styles.link}>Source</a>
+          <a href={source} className={styles.link} target="_blank" rel="noopener noreferrer">Source</a>
         </div>
       </div>
 
@@ -72,4 +67,4 @@ ProjectCard.propTypes = {
     demoImages: PropTypes.arrayOf(PropTypes.string).isRequired,
     source: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
