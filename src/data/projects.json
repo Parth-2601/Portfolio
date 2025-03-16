@@ -10,14 +10,14 @@
   {
     "title": "Serve-Ease (Capstone)",
     "imageSrc": "projects/Project2/cover.png",
-    "description": "ServeEase is a modern, user-friendly home maintenance service app designed for seamless connections between users and trusted service providers. Built with security in mind, all data is fully encrypted to ensure privacy and protection. ServeEase offers a hassle-free experience, allowing users to browse, book, and manage home maintenance services with verified professionals. Whether it's plumbing, electrical work, or general repairs, ServeEase simplifies the process, ensuring reliability and convenience at every step.",
+    "description": "ServeEase is a modern, user-friendly home maintenance service app designed for seamless connections between users and trusted service providers.",
     "demoImages": ["projects/Project2/p1.png", "projects/Project2/p2.png","projects/Project2/p3.png"],
     "source": "https://github.com/Milan-p23/ServeEase.git"
   },
   {
     "title": "Weather App",
     "imageSrc": "projects/Project3/cover.png",
-    "description": "A simple weather app that provides real-time weather information based on city search or user location.",
+    "description": "A simple weather app that provides real-time weather information based on city search or user location. It is built using html, css and javascript with open Weather api.",
     "demoImages": ["projects/Project3/p1.png", "projects/Project3/p2.png"],
     "source": "https://github.com/Parth-2601/Weatther-App.git"
   }
