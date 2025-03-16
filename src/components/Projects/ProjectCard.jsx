@@ -25,11 +25,16 @@ export const ProjectCard = ({ project: { title, imageSrc, description, demoImage
     setCurrentIndex((prevIndex) => (prevIndex - 1 + demoImages.length) % demoImages.length);
   };
 
+  const truncateDescription = (text, maxLines = 4) => {
+    const words = text.split(" ");
+    return words.length > maxLines * 10 ? words.slice(0, maxLines * 10).join(" ") + "..." : text;
+  };
+
   return (
     <div className={styles.container}>
       <img src={getImageUrl(imageSrc)} alt={`Image of ${title}`} className={styles.image} />
       <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
+      <p className={styles.description}>{truncateDescription(description)}</p>
       <div className={styles.linksWrapper}>
         <div className={styles.links}>
           <button onClick={openModal} className={styles.link}>Preview</button>
@@ -67,4 +72,4 @@ ProjectCard.propTypes = {
     demoImages: PropTypes.arrayOf(PropTypes.string).isRequired,
     source: PropTypes.string.isRequired,
   }).isRequired,
-};
+}
