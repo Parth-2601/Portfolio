@@ -33,6 +33,13 @@
   margin-bottom: 52px;
 }
 
+.buttonContainer {
+  display: flex;
+  gap: 20px; 
+  flex-wrap: wrap; 
+}
+
+
 .downloadBtn {
   display: flex;
   align-items: center;

@@ -20,5 +20,12 @@
     "description": "A simple weather app that provides real-time weather information based on city search or user location. It is built using html, css and javascript with open Weather api.",
     "demoImages": ["projects/Project3/p1.png", "projects/Project3/p2.png"],
     "source": "https://github.com/Parth-2601/Weatther-App.git"
+  },
+  {
+    "title": "To-Do list",
+    "imageSrc": "projects/Project4/cover.png",
+    "description": "A mobile Todo List application built using SwiftUI and Xcode for iOS. Features include user authentication (login/signup), task management (add, edit, delete, uncomplete tasks), and profile settings. Firebase is used for authentication and data storage",
+    "demoImages": ["projects/Project4/p1.png", "projects/Project4/p2.png"],
+    "source": "https://github.com/Milan-p23/TO-DO-LIST.git"
   }
 ]
